@@ -1,0 +1,118 @@
+/*Nullstyle*/
+*{padding:0;margin:0;border:0;}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+:focus,:active{outline:none;}
+a:focus,a:active{outline:none;}
+nav,footer,header,aside{display:block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display:none;}
+button{cursor:pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration:none;}
+a:hover{text-decoration:none;}
+ul li{list-style:none;}
+img{vertical-align:top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
+/*--------------------*/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	color: white;
+	font-size: 36px;
+	background-color: #016f32;
+}
+
+.modal {
+	display: block;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/* overflow: auto; */
+	background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 5% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 40%;
+	height: 80%;
+}
+
+
+.content {
+	max-width: 1000px;
+	margin: 0 auto;
+	width: 100%;
+	min-height: 100%;
+	text-align: center;
+	padding: 40px 0;
+	background-color: #007534;
+}
+
+.title {
+	color: goldenrod;
+	font-size: 60px;
+	font-weight: 700;
+	line-height: 1.2;
+	
+	margin-bottom: 20px;
+}
+
+.message {
+	margin-bottom: 20px;
+	font-style: italic;
+}
+
+.info {
+	margin-bottom: 20px;
+}
+
+.bet {
+	color: white;
+	background-color: #005d2a;
+	width: 300px;
+	font-size: 36px;
+	padding: 5px 20px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.button {
+	font-size: 36px;
+	padding: 5px 20px;
+	font-weight: 700;
+	color: #016f32;
+	width: 300px;
+	background: goldenrod;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 3px;
+	margin: 3px 0;
+
+	transition: all .1s linear;
+}
+
+.button-cl {
+	width: 200px;
+}
+
+.button:hover {
+	background: rgb(193, 146, 28);
+	cursor: pointer;
+}
+
+.button:active {
+	background: rgb(165, 125, 24);
+	transform: scale(1.05);
+}
+
+.player {
+	margin-top: 30px;
+}
