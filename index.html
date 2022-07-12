@@ -15,7 +15,16 @@
 		<div class="modal" id="modal-el">
 			<div class="modal-content">
 				<h2 class="title">Autorization</h2>
-				<button class="button button-cl" onclick="closeModal()">Close</button>
+				<form>
+					<p class="message">Your name:</p>
+					<input class="bet" id="name-el" type="text">
+					<p class="message">Bill:</p>
+					<input class="bet" id="bill-el" type="text" value="100">
+					<p class="error" id="error-el"></p>
+				</form>
+				<p class="register">Don't have an account? <a class="register" href="#">Register here</a></p>
+				
+				<div><button class="button button-cl" onclick="closeModal()">Login</button></div>
 			</div>
 		</div>
 		<h1 class="title">Blackjack</h1>

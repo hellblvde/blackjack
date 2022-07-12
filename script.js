@@ -1,8 +1,10 @@
-let modalEl = document.getElementById("modal-el")
-
-function closeModal() {
-	modalEl.style.display = "none";
-}
+let sum = 0
+let bill = 0
+let bet = 0
+let hasBlackJack = false
+let isAlive = false
+let processing = false
+let message = ''
 
 let cards = []
 let allCards = [
@@ -10,26 +12,34 @@ let allCards = [
   10, 11, 11, 11, 12, 12, 13, 13,
 ]
 
-let sum = 0
-let chips = 100
-let bet = 0
-let hasBlackJack = false
-let isAlive = false
-let processing = false
-let message = ''
-
 let messageEl = document.getElementById('message-el')
 let sumEl = document.getElementById('sum-el')
 let cardsEl = document.getElementById('cards-el')
+let modalEl = document.getElementById("modal-el")
+let playerEl = document.getElementById('player-el')
+let errorEl = document.getElementById('error-el')
+let playerName = ''
+let player = {
+  name:  playerName,
+  bill: bill,
+}
+
+function closeModal() {
+  playerName = document.getElementById('name-el').value
+  bill = document.getElementById('bill-el').value
+  if (playerName != '') {
+    modalEl.style.display = "none"
+    player.name = playerName
+    player.bill = bill
+    playerEl.textContent = player.name + ': $' + player.bill
+  } else {
+    errorEl.textContent = "Please fill the name field"
+  }
+}
+
 function getBet() {
   bet = document.getElementById('bet-el').value
 }
-let player = {
-  name: 'Ruslan',
-  chips: chips,
-}
-let playerEl = document.getElementById('player-el')
-playerEl.textContent = player.name + ': $' + player.chips
 
 function getRandomCard() {
   let random = (Math.random() * allCards.length) | 0
@@ -45,13 +55,13 @@ function getRandomCard() {
 
 function startGame() {
   if (!processing) {
-    if (player.chips > -1000 && player.chips - bet >= -1000) {
+    if (player.bill > -1000 && player.bill - bet >= -1000) {
       if (bet >= 1) {
         isAlive = true
         hasBlackJack = false
         processing = true
-        player.chips -= bet
-        playerEl.textContent = player.name + ': $' + player.chips
+        player.bill -= bet
+        playerEl.textContent = player.name + ': $' + player.bill
 
         let firstCard = getRandomCard()
         let secondCard = getRandomCard()
@@ -81,16 +91,16 @@ function renderGame() {
     message = "You've got the Blackjack!"
     hasBlackJack = true
     processing = false
-    player.chips += Math.round(bet * 15)
-    playerEl.textContent = player.name + ': $' + player.chips
+    player.bill += Math.round(bet * 15)
+    playerEl.textContent = player.name + ': $' + player.bill
   } else {
     message = "You're out of the game!"
     isAlive = false
     processing = false
-    if (player.chips === 1) {
-      player.chips -= 1
+    if (player.bill === 1) {
+      player.bill -= 1
     }
-    playerEl.textContent = player.name + ': $' + player.chips
+    playerEl.textContent = player.name + ': $' + player.bill
   }
   messageEl.textContent = message
 }
