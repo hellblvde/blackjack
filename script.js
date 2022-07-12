@@ -9,7 +9,7 @@ let message = ''
 let cards = []
 let allCards = [
   2, 3, 4, 5, 5, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10,
-  10, 11, 11, 11, 12, 12, 13, 13,
+  10, 11, 12, 13,
 ]
 
 let messageEl = document.getElementById('message-el')
@@ -28,10 +28,18 @@ function closeModal() {
   playerName = document.getElementById('name-el').value
   bill = document.getElementById('bill-el').value
   if (playerName != '') {
-    modalEl.style.display = "none"
-    player.name = playerName
-    player.bill = bill
-    playerEl.textContent = player.name + ': $' + player.bill
+    if (bill > 0) {
+      if (bill < 100000) {
+        modalEl.style.display = "none"
+        player.name = playerName
+        player.bill = bill
+        playerEl.textContent = player.name + ': $' + player.bill
+      } else {
+        errorEl.textContent = "Your bill can not be so big. You probably steal it. I'm calling police!"
+      }
+    } else {
+      errorEl.textContent = "Your bill is empty. Get out!"
+    }
   } else {
     errorEl.textContent = "Please fill the name field"
   }
